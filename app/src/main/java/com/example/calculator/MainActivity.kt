@@ -60,7 +60,11 @@ class MainActivity : AppCompatActivity() {
 
   private fun deleteLastChar() {
     if (currentDisplay.isNotEmpty()) {
-      currentDisplay = currentDisplay.substring(0, currentDisplay.length - 1)
+      var lastIndex = currentDisplay.length - 1
+      if (currentDisplay[lastIndex] == ' ') {
+        lastIndex-=2
+      }
+      currentDisplay = currentDisplay.substring(0, lastIndex)
       binding.display.text = currentDisplay
     }
   }
